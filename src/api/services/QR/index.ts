@@ -9,6 +9,7 @@ export function useQRlist(): UseQRlistResult {
   });
 
   const errorMessage = error ? `Error: ${error.message}` : null;
+  console.log(QRList);
 
   return {
     QRList,
@@ -18,8 +19,8 @@ export function useQRlist(): UseQRlistResult {
 }
 
 export async function fetchQRList() {
-  const response = await fetchApi('/qr');
-  const data = await response.json();
+  const response = await fetchApi('/Admin/GetAllDomains');
+  const data = await response;
   return data;
 }
 
